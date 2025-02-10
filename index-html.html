@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON CSV Tags Editor</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>JSON CSV Tags Editor</h1>
+            <p>Paste your JSON data below to edit the CSV tags</p>
+        </div>
+
+        <div class="input-area">
+            <label>Input JSON:</label>
+            <textarea id="jsonInput" placeholder="Paste your JSON here..."></textarea>
+            <div id="errorMsg" class="error"></div>
+            <button onclick="parseJson()">Load JSON</button>
+        </div>
+
+        <div id="tableContainer" class="table-container" style="display: none;">
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Index</th>
+                        <th>Code</th>
+                        <th>Order</th>
+                        <th>Head Name</th>
+                        <th>Is Subject</th>
+                        <th>Display Name</th>
+                    </tr>
+                </thead>
+                <tbody id="tableBody">
+                </tbody>
+            </table>
+        </div>
+
+        <div class="output-area">
+            <label>Output JSON:</label>
+            <textarea id="jsonOutput" readonly></textarea>
+            <button onclick="copyToClipboard()">Copy to Clipboard</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
