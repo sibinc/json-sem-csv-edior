@@ -34,4 +34,4 @@ This project is configured for GitHub Pages. To deploy:
 1. Fork this repository
 2. Enable GitHub Pages in your repository settings
 3. Select the main branch as the source
-4. Your site will be available at `https://[your-username].github.io/json-editor/`
+4. Your site will be available at `https://[your-username].github.io/json-sem-csv-edior
