@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JSON Editor</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h2></h2>
+    <div class="textarea-container">
+        <div class="menu-bar">
+            <div style="flex-grow: 1; text-align: left;">JSON Editor for Digilocker CSV</div>
+            <button class="format-btn" onclick="formatJSON()"><i class="fas fa-align-left"></i></button>
+            <button class="expand-btn" onclick="toggleTextareaSize()"><i class="fas fa-expand"></i></button>
+        </div>
+        <textarea id="jsonInput" placeholder="Paste your JSON here"></textarea>
+    </div>
+    <div class="button-group">
+        <button onclick="loadJSON()"><i class="fas fa-upload"></i> Load JSON</button>
+        <label for="csvInput" class="button-group">
+            <i class="fas fa-file-csv"></i> Load CSV
+            <input type="file" id="csvInput" accept=".csv" onchange="loadCSV()" style="display: none;">
+        </label>
+        <button onclick="sortTable()"><i class="fas fa-sort"></i> Sort by Order</button>
+        <button onclick="correctOrder()"><i class="fas fa-check"></i> Correct Order</button>
+        <button onclick="resetJSON()"><i class="fas fa-redo"></i> Reset</button>
+    </div>
+
+    <table id="jsonTable">
+        <thead id="tableHead">
+            <tr>
+                <th>Order</th>
+                <th>Head Name</th>
+                <th>Code</th>
+                <th>Display Name</th>
+                <th>Is Subject</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="button-group">
+        <button onclick="addRow()"><i class="fas fa-plus"></i> Add Row</button>
+        <button onclick="exportJSON()"><i class="fas fa-download"></i> Export JSON</button>
+    </div>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
