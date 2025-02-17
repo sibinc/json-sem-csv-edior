@@ -126,11 +126,17 @@ function parseCSV(text) {
         "SGPA": "sgpa",
         "TOT_GRADE": "semesterGrandTotalGrade"
     };
-
+    const secondLine = lines[1].replace(/\t/g, ',');
+    const values = secondLine.split(',').map(value => value.trim());
     headers.forEach((header, index) => {
         if ((header.startsWith("SUB1") && !header.startsWith("SUB10")) || !header.startsWith("SUB")) {
             const isSubject = header.startsWith("SUB");
-            const code = isSubject ? header.slice(0, -3).toLowerCase() : (codeMap[header] || header.toLowerCase());
+            var code = "";
+            if(values[index]){
+                 code = isSubject ? header.slice(0, -3).toLowerCase() : (codeMap[header] || header.toLowerCase());
+            }else{
+                 code = 'blank';
+            }
             const order = index + 1;
             let displayName = header;
             let headName = header;
@@ -138,7 +144,6 @@ function parseCSV(text) {
                 headName = header.slice(4);
                 displayName = header.slice(0, 3) + header.slice(4);
             }
-
             csvTags.push({
                 code,
                 order,
